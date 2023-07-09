@@ -3,6 +3,7 @@ $(document).ready(function(){
  CalcularVolumen();
  calcularcimiento();
  calcularpintura();
+ calculardensidad();
 
  $("#optionsRadios1").click(function(evento){
     $('.cal1').show(); 
@@ -30,6 +31,10 @@ $(document).ready(function(){
      event.preventDefault();
      calcularcimiento();
  });
+ $(".calcular4").click(function(event){
+    event.preventDefault();
+    calculardensidad();
+});
 
 
   $("#pint").click(function(event){
@@ -56,22 +61,12 @@ $(document).ready(function(){
 
      var volrelleno = redondear(vol - volthorm,2);
 
-     var cerco = a1/100*4;
-     var cant_cerco = (h1 - h2)/100 / 0.25 + 1;
-     var totalcerco = redondear(cerco * cant_cerco,2);
-
-     var acerop =  redondear( ( h1/100 + b1/200 ) *f1 ,2) ;
-
-     var acero_plato = redondear(  b1 / 23 * b1/100 * 2  + 1 , 2);
 
 
      document.getElementById("cimiento_r1").value = redondear(vol * cant,2);
      document.getElementById("cimiento_r2").value =  redondear(volthorm * cant,2);
      document.getElementById("cimiento_r3").value =  redondear(volrelleno * cant,2);
 
-     document.getElementById("cimiento_r4").value =  redondear(totalcerco * cant,2);
-     document.getElementById("cimiento_r5").value =  redondear(acerop * cant,2);
-     document.getElementById("cimiento_r6").value =  redondear(acero_plato * cant,2);
 
      document.getElementById("cimiento_r7").value =  redondear( volthorm * cant * 9.82,2);
      document.getElementById("cimiento_r8").value =  redondear( volthorm * cant * 0.53,2);
@@ -169,3 +164,12 @@ function calcularpintura(){
 }
 
 
+function calculardensidad(){
+    var Hab = document.getElementById("densidad_a").value;
+     var Sup = document.getElementById("densidad_b").value;
+
+     //$("#pintura001").text(redondear(Hab/Sup));
+     
+     document.getElementById("densidad_r1").value = redondear(Hab / Sup);
+
+  }
