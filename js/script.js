@@ -1,8 +1,6 @@
 $(document).ready(function(){  
  $('.cal2').hide();
  CalcularVolumen();
- calcularcimiento();
- calcularpintura();
  calculardensidad();
 
  $("#optionsRadios1").click(function(evento){
@@ -26,21 +24,12 @@ $(document).ready(function(){
      CalcularVolumen();
  });
 
-
-  $(".calcular3").click(function(event){
-     event.preventDefault();
-     calcularcimiento();
- });
  $(".calcular4").click(function(event){
     event.preventDefault();
     calculardensidad();
 });
 
 
-  $("#pint").click(function(event){
-     event.preventDefault();
-     calcularpintura();
- });
 
 
 
@@ -150,25 +139,9 @@ function redondear(cantidad, decimales)
 }
 
 
-function calcularpintura(){
-     var a = document.getElementById("pintura_a").value;
-     var b = document.getElementById("pintura_b").value;
-     $("#pintura001").text(redondear(a*b*0.1706256,4));
-     $("#pintura002").text(redondear(a*b*0.613836,4));
-     $("#pintura003").text(redondear(a*b*0.1019592,4));
-     $("#pintura004").text(redondear(a*b*0.1706256,4));
-     $("#pintura005").text(redondear(a*b*0.801108,4));
-     $("#pintura006").text(redondear(a*b*0.447372,4));
-     $("#pintura007").text(redondear(a*b*0.020808,4));
-     $("#pintura008").text(redondear(a*b*0.0228888,4));
-}
-
-
 function calculardensidad(){
     var Hab = document.getElementById("densidad_a").value;
      var Sup = document.getElementById("densidad_b").value;
-
-     //$("#pintura001").text(redondear(Hab/Sup));
      
      document.getElementById("densidad_r1").value = redondear(Hab / Sup);
 
