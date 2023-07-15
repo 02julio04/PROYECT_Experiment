@@ -4,6 +4,14 @@
 	<meta charset="UTF-8">
 	<title>Proyect Experimentacion</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
+  <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/font-awesome.css">
 	<script src="js/jquery-1.11.1.min.js"></script>
@@ -15,7 +23,7 @@
 		<div class="row">
       <div class="col-lg-12">
         <div class="page-header">
-          <h1>Cálculo de Materiales & Cálculo de densidad Poblacional</h1>
+          <h1>Cálculo de densidad Poblacional & Calidad de Via</h1>
         </div>
       </div>
     </div>
@@ -25,175 +33,157 @@
         <div>
           <!-- Nav tabs -->
           <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#hormigon" aria-controls="home" role="tab" data-toggle="tab">1- Hormigones</a></li>
-            <li role="presentation"><a href="#densidad" aria-controls="settings" role="tab" data-toggle="tab">2- Densidad Poblacional</a></li>
+            <li role="presentation"><a href="#densidad" aria-controls="settings" role="tab" data-toggle="tab">1- Densidad Poblacional</a></li>
+            <li role="presentation"><a href="#via" aria-controls="settings" role="tab" data-toggle="tab">2- Calidad de Via</a></li>
           </ul>
 
           <hr>
           <!-- Tab panes -->
           <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="hormigon">    	
-             <div class="row">
-               <div class="col-lg-6">
-
-                <div class="radio">
-                  <label>
-                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                    Cálcular por Volumen V(m<sup>3</sup>)
-                  </label>
+            <div role="tabpanel" class="tab-pane active" id="densidad">   
+              <div class="row">
+                <div class="col-lg-6">            
+   
+                  <div class="form-group">
+                   <label for="exampleInputEmail1">Numero de habitantes</label>
+                   <input type="text" class="form-control" id="densidad_a" placeholder="" value="1">
+                 </div>
+   
+                 <div class="form-group">
+                   <label for="exampleInputEmail1">Superficie(Km^2)</label>
+                   <input type="text" class="form-control" id="densidad_b" placeholder="" value="1">
+                 </div>
+   
+                 <button type="submit"  class="btn btn-default calcular4" id="pint">Calcular</button>
+                 <hr>
+   
+                 <div class="panel panel-success">
+   
+                   <div class="panel-heading">
+                     <h3 class="panel-title">Resultados Generales</h3>
+                   </div>
+    
+                   <div class="panel-body">
+                     <div class="input-group">
+                      <span class="input-group-addon">Densidad poblacional habitantes/Km<sup>2</sup></span>
+                      <input type="text" class="form-control" aria-describedby="basic-addon1" id="densidad_r1" value="1">
+                    </div>
+                    <br>
+                  </div>
                 </div>
-
-                <div class="radio">
-                  <label>
-                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                    Cálcular con dimensiones V = a x b x h <!--  a es longitud, b es ancho y h es altura. Volumen de un cubo.-->
-                  </label>
-                </div>
-
-
-
-                <!-- Cálculo 1 -->
-                <div class="cal1">
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Entre el volumen (m<sup>3</sup>)</label>
-                    <input type="text" class="form-control" id="volumen" placeholder="" value="1">
-                  </div>
-                  <button type="submit" class="btn btn-default calcular1">Calcular</button>
-                </div>
+                
+   
+   
+     <div role="tabpanel" class="tab-pane" id="messages">...</div>
+     <div role="tabpanel" class="tab-pane" id="settings">...</div>
+   </div>
+   <div class="col-lg-6">
+     <img src="img/densi2.jpg" class="img-responsive" alt="Responsive image">
+   </div>
+   
+   </div> 	
 
 
-                <!-- Cálculo 2 -->
-                <div class="cal2">
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Ancho (m)</label>
-                    <input type="text" class="form-control" id="hormigona" placeholder="" value="1">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Base (m)</label>
-                    <input type="text" class="form-control" id="hormigonb" placeholder="" value="1">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Altura (m)</label>
-                    <input type="text" class="form-control" id="hormigonh" placeholder="" value="1">
-                  </div>
-                  <button type="submit" class="btn btn-default calcular2">Calcular</button>
-                  <hr>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Volumen (m<sup>3</sup>)</label>
-                    <input type="text" class="form-control" id="hormigonv" placeholder="" value="1" readonly>
-                  </div>
-
-
-                </div>
 
                 <br>
-                <div class="panel panel-success">
-
-                 <div class="panel-heading">
-                   <h3 class="panel-title">Resultados PP-250</h3>
-                 </div>
-
-                 <div class="panel-body">
-                  <table class="table table-hover">
-                    <thead>
-                      <tr>
-                        <th>Tipo</th>
-                        <th>Dosificación</th>
-                        <th>Cemento(Sacos)</th>
-                        <th>Arena(m<sup>3</sup>)</th>
-                        <th>Piedra(m<sup>3</sup>)</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">PP-250<code>10MPa</code></th>
-                        <td id="pp25010d">0</td>
-                        <td id="pp25010c">1</td>
-                        <td id="pp25010a">2</td>
-                        <td id="pp25010p">3</td>
-                      </tr>
-
-                      <tr>
-                        <th scope="row">PP-250<code>15MPa</code></th>
-                        <td id="pp25015d">0</td>
-                        <td id="pp25015c">1</td>
-                        <td id="pp25015a">2</td>
-                        <td id="pp25015p">3</td>
-                      </tr>
-
-                      <tr class="success">
-                        <th scope="row">PP-250<code>20MPa</code></th>
-                        <td id="pp25020d">0</td>
-                        <td id="pp25020c">1</td>
-                        <td id="pp25020a">2</td>
-                        <td id="pp25020p">3</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-
-            </div>
-            <div class="col-lg-6">
-              <img src="img/horm1.jpg" class="img-responsive" alt="Responsive image">
-              <hr>
-              <form class="form-inline">
-              </div>
-            </div>
           </div>
 
-
-          <!---  HORMIGON END * HORMIGON END * HORMIGON END * HORMIGON END  * HORMIGON END  * HORMIGON END  * HORMIGON END  -->
-
-
   
-  <div role="tabpanel" class="tab-pane" id="densidad">
-    
+  <div role="tabpanel" class="tab-pane" id="via">
     <div class="row">
-             <div class="col-lg-6">            
+      <div class="col l5 offset-l1 s12">
+        <table id="transactionTable">
+          <h4>Resultados</h4>
+          <thead>
+            <tr>
+              <th scope="col">Tipo</th>
+              <th scope="col">Lugar</th>
+              <th scope="col">Longitud (en mts)</th>
+              <th scope="col">Tipo de via</th>
+              <th scope="col">Eliminar</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="col l5 s12">
+        <div class="col s8 offset-s2">
+          <form id="transactionForm">
+            <div class="formField">
+              <p>
+                
+                <label>
+                  <i class="material-icons">add</i>
+                  <input
+                    value="Transitable"
+                    class="with-gap"
+                    name="transactionType"
+                    type="radio"
+                    checked
+                  />
+                  <span>Transitable</span>
+                </label>
+                <label>
+                  <i class="material-icons">indeterminate_check_box</i>
+                  <input
+                    value="Intransitable"
+                    class="with-gap"
+                    name="transactionType"
+                    type="radio"
+                  />
+                  <span>Intransitable</span>
+                </label>
+              </p>
+            </div>
+            <div class="input-field">
+              <label for="transactionDescription">Lugar</label>
+              <input
+                class="validate"
+                type="text"
+                id="transactionDescription"
+                name="transactionDescription"
+              />
+            </div>
+            <div class="input-field">
+              <label for="transactionAmount">Longitud</label>
+              <input 
+                class="validate"
+                id="transactionAmount_a"
+                name="transactionAmount"
+                type="number"
+                step="any"
+              />
+            </div>
+            <div class="formField">
+              <label for="transactionCategory">Tipo de Via</label>
 
-               <div class="form-group">
-                <label for="exampleInputEmail1">Numero de habitantes</label>
-                <input type="text" class="form-control" id="densidad_a" placeholder="" value="1">
-              </div>
-
-              <div class="form-group">
-                <label for="exampleInputEmail1">Superficie(Km^2)</label>
-                <input type="text" class="form-control" id="densidad_b" placeholder="" value="1">
-              </div>
-
-              <button type="submit"  class="btn btn-default calcular4" id="pint">Calcular</button>
-              <hr>
-
-              <div class="panel panel-success">
-
-                <div class="panel-heading">
-                  <h3 class="panel-title">Resultados Generales</h3>
-                </div>
- 
-                <div class="panel-body">
-                  <div class="input-group">
-                   <span class="input-group-addon">Densidad poblacional habitantes/Km<sup>2</sup></span>
-                   <input type="text" class="form-control" aria-describedby="basic-addon1" id="densidad_r1" value="1">
-                 </div>
-                 <br>
-               </div>
-             </div>
-             
-
-
-  <div role="tabpanel" class="tab-pane" id="messages">...</div>
-  <div role="tabpanel" class="tab-pane" id="settings">...</div>
-</div>
-<div class="col-lg-6">
-  <img src="img/densi2.jpg" class="img-responsive" alt="Responsive image">
-</div>
-
-</div>
+              <select
+                class="browser-default"
+                id="transactionCategory"
+                name="transactionCategory"
+              ></select>
+            </div>
+            <br />
+            <button
+              class="btn waves-effect waves-light"
+              type="submit"
+              name="action"
+              id="botonDeEnvio"
+            >
+              Añadir <i class="material-icons right"> send </i>
+            </button>
+            
+          </form>
+          
+        </div>
+      </div>
+      
+    </div>
+    
 </div>	
 </div>
-
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="js/index.js"></script>
 
 </body>
 </html>
